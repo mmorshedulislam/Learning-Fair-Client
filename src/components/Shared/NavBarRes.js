@@ -68,6 +68,11 @@ const NavBarRes = () => {
               </NavLink>
             </li>
             <li>
+              <NavLink to={"/faq"} className="text-xl mx-4">
+                FAQ
+              </NavLink>
+            </li>
+            <li>
               <NavLink to={"/blogs"} className="text-xl mx-4">
                 Blogs
               </NavLink>

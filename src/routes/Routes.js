@@ -1,6 +1,8 @@
 import Blogs from "../components/Blogs/Blogs";
+import CheckOut from "../components/CheckOut/CheckOut";
 import CourseDetails from "../components/Courses/CourseDetails";
 import Courses from "../components/Courses/Courses";
+import FAQ from "../components/FAQ/FAQ";
 import Home from "../components/Home/Home";
 import ForgotPassword from "../components/Login/ForgotPassword";
 import Login from "../components/Login/Login";
@@ -34,6 +36,10 @@ export const routes = createBrowserRouter([
         element: <CourseDetails></CourseDetails>,
       },
       {
+        path: "faq",
+        element: <FAQ></FAQ>,
+      },
+      {
         path: "/blogs",
         element: <Blogs></Blogs>,
       },
@@ -52,6 +58,10 @@ export const routes = createBrowserRouter([
       {
         path: "/forgot-password",
         element: <ForgotPassword></ForgotPassword>,
+      },
+      {
+        path: "checkout",
+        element: <CheckOut></CheckOut>,
       },
     ],
   },

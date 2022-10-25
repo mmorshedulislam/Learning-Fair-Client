@@ -5,7 +5,12 @@ import { AuthContext } from "../../contexts/AuthProvider";
 import toast from "react-hot-toast";
 
 const Login = () => {
-  const { signInEmaiLPassword, signWithGoogle } = useContext(AuthContext);
+  const {
+    signInEmaiLPassword,
+    signWithGoogle,
+    signInWithFacebook,
+    signInWithGithub,
+  } = useContext(AuthContext);
 
   // get value using useRef
   const emailRef = useRef();
@@ -20,22 +25,42 @@ const Login = () => {
     signInEmaiLPassword(email, password)
       .then((userCredential) => {
         const user = userCredential.user;
-        toast.success("Successfully Log In!")
+        toast.success("Successfully Log In!");
         console.log(user);
       })
       .catch((e) => console.error(e));
   };
 
-  // sign with google
+  // sign in with google
   const signGoogle = () => {
     signWithGoogle()
       .then((result) => {
         const user = result.user;
-        console.log(user);
+        toast.success("Successfully logged in with Google.");
       })
       .catch((error) => {
         console.error(error);
       });
+  };
+
+  // sign in with Facebook
+  const signInFacebook = () => {
+    signInWithFacebook()
+      .then((userCredential) => {
+        const user = userCredential.user;
+        toast.success("Successfully logged in with Facebook.");
+      })
+      .catch((e) => console.error(e));
+  };
+
+  // sign in with Github
+  const signInGithub = () => {
+    signInWithGithub()
+      .then((userCredential) => {
+        const user = userCredential.user;
+        toast.success("Successfully Logged In with Github.");
+      })
+      .catch((e) => console.error(e));
   };
 
   return (
@@ -102,12 +127,18 @@ const Login = () => {
               <FaGoogle></FaGoogle>
             </Link>
           </div>
-          <div className="border border-yellow-500 p-5 text-2xl rounded-full">
+          <div
+            onClick={signInFacebook}
+            className="border border-yellow-500 p-5 text-2xl rounded-full"
+          >
             <Link className="block">
               <FaFacebook></FaFacebook>
             </Link>
           </div>
-          <div className="border border-yellow-500 p-5 text-2xl rounded-full">
+          <div
+            onClick={signInGithub}
+            className="border border-yellow-500 p-5 text-2xl rounded-full"
+          >
             <Link className="block">
               <FaGithub></FaGithub>
             </Link>
