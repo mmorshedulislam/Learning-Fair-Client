@@ -4,6 +4,7 @@ import {
   getAuth,
   GoogleAuthProvider,
   onAuthStateChanged,
+  signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
   updateProfile,
@@ -19,6 +20,10 @@ const AuthProvider = ({ children }) => {
 
   const createUser = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
+  };
+
+  const signInEmaiLPassword = (email, password) => {
+    return signInWithEmailAndPassword(auth, email, password);
   };
 
   const signWithGoogle = () => {
@@ -43,7 +48,14 @@ const AuthProvider = ({ children }) => {
     };
   }, []);
 
-  const authInfo = { user, createUser, signWithGoogle, profileUpdate, logOut };
+  const authInfo = {
+    user,
+    createUser,
+    signInEmaiLPassword,
+    signWithGoogle,
+    profileUpdate,
+    logOut,
+  };
 
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

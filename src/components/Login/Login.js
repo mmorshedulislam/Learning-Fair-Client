@@ -1,13 +1,30 @@
-import React, { useContext } from "react";
+import React, { useContext, useRef } from "react";
 import { Link } from "react-router-dom";
 import { FaGoogle, FaFacebook, FaGithub } from "react-icons/fa";
 import { AuthContext } from "../../contexts/AuthProvider";
+import toast from "react-hot-toast";
 
 const Login = () => {
-  const { signWithGoogle } = useContext(AuthContext);
+  const { signInEmaiLPassword, signWithGoogle } = useContext(AuthContext);
+
+  // get value using useRef
+  const emailRef = useRef();
+  const passwordRef = useRef();
 
   // sign with email and password
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const email = emailRef.current.value;
+    const password = passwordRef.current.value;
 
+    signInEmaiLPassword(email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        toast.success("Successfully Log In!")
+        console.log(user);
+      })
+      .catch((e) => console.error(e));
+  };
 
   // sign with google
   const signGoogle = () => {
@@ -24,7 +41,7 @@ const Login = () => {
   return (
     <div className="container mx-auto">
       <div className="max-w-md lg:max-w-96 mx-auto border border-yellow-600 border-md p-16 rounded">
-        <form>
+        <form onSubmit={handleSubmit}>
           <h2 className="text-4xl italic my-5">Login</h2>
           {/* Email */}
           <div className="form-control w-full max-w-xs">
@@ -32,6 +49,7 @@ const Login = () => {
               <span className="label-text">Email</span>
             </label>
             <input
+              ref={emailRef}
               type="email"
               name="email"
               placeholder="Enter Your Email"
@@ -44,6 +62,7 @@ const Login = () => {
               <span className="label-text">Password</span>
             </label>
             <input
+              ref={passwordRef}
               type="password"
               name="password"
               placeholder="Enter Your Password"
