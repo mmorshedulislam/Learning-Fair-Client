@@ -1,8 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { FaGoogle, FaFacebook, FaGithub } from "react-icons/fa";
+import { AuthContext } from "../../contexts/AuthProvider";
 
 const Login = () => {
+  const { signWithGoogle } = useContext(AuthContext);
+  const signGoogle = () => {
+    signWithGoogle()
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
   return (
     <div className="container mx-auto">
       <div className="max-w-md lg:max-w-96 mx-auto border border-yellow-600 border-md p-16 rounded">
@@ -57,7 +69,10 @@ const Login = () => {
         <div className="divider">OR</div>
         <p className="text-center text-xl my-3">Continue with </p>
         <div className="social-login flex justify-evenly">
-          <div className="border border-yellow-500 p-5 text-2xl rounded-full">
+          <div
+            onClick={signGoogle}
+            className="border border-yellow-500 p-5 text-2xl rounded-full"
+          >
             <Link className="block">
               <FaGoogle></FaGoogle>
             </Link>

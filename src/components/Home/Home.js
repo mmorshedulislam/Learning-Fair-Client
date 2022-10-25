@@ -10,7 +10,7 @@ const Home = () => {
         <div className="hero-content text-center text-neutral-content">
           <div className="max-w-lg">
             <h1 className="mb-5 text-3xl md:text-5xl font-bold">
-              Hello, {user.name}
+              Hello, {user?.displayName ? user?.displayName : "There!"}
             </h1>
             <p className="mb-5">
               We provide some Premium Courses that's change your life

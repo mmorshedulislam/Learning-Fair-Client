@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../../contexts/AuthProvider";
 
 const NavBarRes = () => {
-  const user = true;
+  const { user, logOut } = useContext(AuthContext);
+  const signOut = () => {
+    logOut()
+      .then(() => {})
+      .catch((e) => console.error(e));
+  };
   return (
     <div className="container mx-auto">
       <div className="navbar bg-base-100">
@@ -69,8 +75,8 @@ const NavBarRes = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <input type="checkbox" className="toggle" />
-          {user ? (
+          <input type="checkbox" className="toggle mr-3" />
+          {!user ? (
             <>
               <NavLink to={"/login"} className="text-xl mx-4">
                 Log In
@@ -81,19 +87,24 @@ const NavBarRes = () => {
             </>
           ) : (
             <>
-              <div className="dropdown dropdown-end">
+              <div className="dropdown dropdown-end flex items-center">
                 <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                  <div className="w-10 rounded-full ">
-                    <img src="../../assets/imgs/logo.png" alt="" />
+                  <div className="w-10 rounded-full" title={user?.displayName}>
+                    <Link to={"/update-profile"}>
+                      <img src={user?.photoURL} alt="" />
+                    </Link>
                     {/* <FaUser></FaUser> */}
                   </div>
                 </label>
-                <ul
+                <button onClick={signOut} className="btn ml-3">
+                  Sign Out
+                </button>
+                {/*  <ul
                   tabIndex={0}
                   className="menu menu-compact dropdown-content mr-20 mt-3 p-2 bg-base-100 rounded-box"
                 >
                   <li>
-                    <span>M Morshedul Islam</span>
+                    <span>{user?.displayName}</span>
                   </li>
                   <li>
                     <Link className="justify-between">
@@ -101,7 +112,7 @@ const NavBarRes = () => {
                       <span className="badge">New</span>
                     </Link>
                   </li>
-                </ul>
+                </ul> */}
               </div>
             </>
           )}

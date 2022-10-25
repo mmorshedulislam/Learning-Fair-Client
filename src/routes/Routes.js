@@ -4,6 +4,7 @@ import Courses from "../components/Courses/Courses";
 import Home from "../components/Home/Home";
 import ForgotPassword from "../components/Login/ForgotPassword";
 import Login from "../components/Login/Login";
+import ProfileUpdate from "../components/ProfileUpdate/ProfileUpdate";
 import SignUp from "../components/SignUp/SignUp";
 
 const { createBrowserRouter } = require("react-router-dom");
@@ -43,6 +44,10 @@ export const routes = createBrowserRouter([
       {
         path: "/signup",
         element: <SignUp></SignUp>,
+      },
+      {
+        path: "/update-profile",
+        element: <ProfileUpdate></ProfileUpdate>,
       },
       {
         path: "/forgot-password",
