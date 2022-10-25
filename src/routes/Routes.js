@@ -1,6 +1,7 @@
 import Blogs from "../components/Blogs/Blogs";
 import Courses from "../components/Courses/Courses";
 import Home from "../components/Home/Home";
+import ForgotPassword from "../components/Login/ForgotPassword";
 import Login from "../components/Login/Login";
 import SignUp from "../components/SignUp/SignUp";
 
@@ -31,8 +32,12 @@ export const routes = createBrowserRouter([
         element: <Login></Login>,
       },
       {
-        path: "signup",
+        path: "/signup",
         element: <SignUp></SignUp>,
+      },
+      {
+        path: "/forgot-password",
+        element: <ForgotPassword></ForgotPassword>,
       },
     ],
   },

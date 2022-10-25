@@ -10,9 +10,21 @@ const NavBar = () => {
           <span className="text-2xl font-bold italic">Learning Fair</span>
         </Link>
       </div>
-      <Link to={"/"} className="text-xl mx-4">Home</Link>
-      <Link to={"/courses"} className="text-xl mx-4">Courses</Link>
-      <Link to={"/blogs"} className="text-xl mx-4">Blogs</Link>
+      <Link to={"/"} className="text-xl mx-4">
+        Home
+      </Link>
+      <Link to={"/courses"} className="text-xl mx-4">
+        Courses
+      </Link>
+      <Link to={"/blogs"} className="text-xl mx-4">
+        Blogs
+      </Link>
+      <Link to={"/login"} className="text-xl mx-4">
+        Log In
+      </Link>
+      <Link to={"/signup"} className="text-xl mx-4">
+        Sign Up
+      </Link>
       <div className="flex-none">
         <div className="dropdown dropdown-end">
           <label tabIndex={0} className="btn btn-ghost btn-circle">
