@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AuthContext } from "../../contexts/AuthProvider";
 
 const Home = () => {
+  const { user } = useContext(AuthContext);
   return (
     <div>
       <div className="hero min-h-screen">
@@ -8,7 +10,7 @@ const Home = () => {
         <div className="hero-content text-center text-neutral-content">
           <div className="max-w-lg">
             <h1 className="mb-5 text-3xl md:text-5xl font-bold">
-              Hello, Md. Morshedul Islam
+              Hello, {user.name}
             </h1>
             <p className="mb-5">
               We provide some Premium Courses that's change your life

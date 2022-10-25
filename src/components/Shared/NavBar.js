@@ -1,6 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { FaUser } from "react-icons/fa";
+import { Link, NavLink } from "react-router-dom";
 
 const NavBar = () => {
   return (
@@ -23,9 +22,9 @@ const NavBar = () => {
       <Link to={"/login"} className="text-xl mx-4">
         Log In
       </Link>
-      <Link to={"/signup"} className="text-xl mx-4">
+      <NavLink to={"/signup"} className="text-xl mx-4">
         Sign Up
-      </Link>
+      </NavLink>
       <div className="flex-none">
         <div className="dropdown dropdown-end">
           <label tabIndex={0} className="btn btn-ghost btn-circle">
