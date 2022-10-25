@@ -4,8 +4,8 @@ import { FaGoogle, FaFacebook, FaGithub } from "react-icons/fa";
 
 const Login = () => {
   return (
-    <div>
-      <div className="w-1/3 mx-auto border border-yellow-600 border-md p-20 rounded">
+    <div className="container mx-auto">
+      <div className="max-w-md lg:max-w-96 mx-auto border border-yellow-600 border-md p-16 rounded">
         <form>
           <h2 className="text-4xl italic my-5">Login</h2>
           {/* Email */}

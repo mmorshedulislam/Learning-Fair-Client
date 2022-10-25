@@ -1,4 +1,5 @@
 import Blogs from "../components/Blogs/Blogs";
+import CourseDetails from "../components/Courses/CourseDetails";
 import Courses from "../components/Courses/Courses";
 import Home from "../components/Home/Home";
 import ForgotPassword from "../components/Login/ForgotPassword";
@@ -22,6 +23,10 @@ export const routes = createBrowserRouter([
       {
         path: "/courses",
         element: <Courses></Courses>,
+      },
+      {
+        path: "/coursedetail/:id",
+        element: <CourseDetails></CourseDetails>,
       },
       {
         path: "/blogs",
