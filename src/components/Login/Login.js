@@ -5,6 +5,11 @@ import { AuthContext } from "../../contexts/AuthProvider";
 
 const Login = () => {
   const { signWithGoogle } = useContext(AuthContext);
+
+  // sign with email and password
+
+
+  // sign with google
   const signGoogle = () => {
     signWithGoogle()
       .then((result) => {
@@ -15,6 +20,7 @@ const Login = () => {
         console.error(error);
       });
   };
+
   return (
     <div className="container mx-auto">
       <div className="max-w-md lg:max-w-96 mx-auto border border-yellow-600 border-md p-16 rounded">

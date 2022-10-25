@@ -87,33 +87,15 @@ const NavBarRes = () => {
             </>
           ) : (
             <>
-              <div className="dropdown dropdown-end flex items-center">
-                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                  <div className="w-10 rounded-full" title={user?.displayName}>
-                    <Link to={"/update-profile"}>
-                      <img src={user?.photoURL} alt="" />
-                    </Link>
-                    {/* <FaUser></FaUser> */}
-                  </div>
-                </label>
-                <button onClick={signOut} className="btn ml-3">
-                  Sign Out
-                </button>
-                {/*  <ul
-                  tabIndex={0}
-                  className="menu menu-compact dropdown-content mr-20 mt-3 p-2 bg-base-100 rounded-box"
-                >
-                  <li>
-                    <span>{user?.displayName}</span>
-                  </li>
-                  <li>
-                    <Link className="justify-between">
-                      Profile
-                      <span className="badge">New</span>
-                    </Link>
-                  </li>
-                </ul> */}
+              <div className="w-10 " title={user?.displayName}>
+                <Link to={"/update-profile"}>
+                  <img src={user?.photoURL} alt="" className="rounded-full" />
+                </Link>
+                {/* <FaUser></FaUser> */}
               </div>
+              <button onClick={signOut} className="btn ml-3">
+                Sign Out
+              </button>
             </>
           )}
         </div>

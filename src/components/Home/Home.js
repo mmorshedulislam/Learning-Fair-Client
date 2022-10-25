@@ -17,7 +17,7 @@ const Home = () => {
               destination from our Learning Fair.
             </p>
             <p className="text-2xl md:text-4xl font-semi-bold">
-              So, Let's explore our Premium Course
+              So, Let's explore our Premium Courses...
             </p>
             <button className="btn mt-5 btn-primary">Explore Courses</button>
           </div>
