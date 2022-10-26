@@ -7,6 +7,7 @@ import toast from "react-hot-toast";
 const Login = () => {
   const {
     signInEmaiLPassword,
+    resetPassword,
     signWithGoogle,
     signInWithFacebook,
     signInWithGithub,
@@ -35,6 +36,24 @@ const Login = () => {
         // console.log(user);
       })
       .catch((e) => console.error(e));
+  };
+
+  // reset password
+  const handleResetPassword = () => {
+    const email = emailRef.current.value;
+    if (email) {
+      resetPassword(email)
+        .then(() => {
+          toast.success("Reset email has been sent.");
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          toast.error(errorMessage);
+        });
+    } else {
+      toast.error('Please input your Email.')
+    }
   };
 
   // sign in with google
@@ -111,9 +130,11 @@ const Login = () => {
                 </div>
               </label>
             </div>
-            <Link to={"/forgot-password"} className="text-yellow-200">
-              Forgotten Password?
-            </Link>
+            <div onClick={handleResetPassword}>
+              <Link to={""} className="text-yellow-200">
+                Forgotten Password?
+              </Link>
+            </div>
           </div>
           <input type="submit" value="LOG IN" className="btn btn-block" />
         </form>

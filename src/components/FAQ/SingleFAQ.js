@@ -1,11 +1,16 @@
 import React from "react";
 
-const SingleFAQ = ({question}) => {
-    const {answer} = question; 
+const SingleFAQ = ({ question }) => {
+  const { answer } = question;
   return (
-    <div className="card card-side bg-base-100 shadow-xl m-3">
-      <div className="card-body">
-        <h2 className="card-title">{question.question}</h2>
+    <div
+      tabIndex={0}
+      className="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box my-3"
+    >
+      <div className="collapse-title text-xl font-medium">
+        {question.question}
+      </div>
+      <div className="collapse-content">
         <p>{answer}</p>
       </div>
     </div>

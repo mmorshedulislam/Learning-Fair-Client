@@ -6,8 +6,10 @@ const FAQ = () => {
   const faq = useLoaderData();
   return (
     <div className="container g-5">
-      <h2 className="text-center text-4xl my-5">Frequently ask and Questions.</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+      <h2 className="text-center text-4xl my-5">
+        Frequently ask and Questions.
+      </h2>
+      <div className="w-full lg:w-1/2 mx-auto">
         {faq.map((question) => (
           <SingleFAQ key={question.id} question={question}></SingleFAQ>
         ))}
