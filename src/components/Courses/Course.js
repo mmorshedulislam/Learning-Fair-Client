@@ -1,18 +1,24 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-const Course = () => {
+const Course = ({ course }) => {
+  const { id, title, description, img, price } = course;
+
   return (
-    <div>
-      <div className="card bg-base-100 shadow-xl image-full">
-        <figure>
-          <img src="https://placeimg.com/400/225/arch" alt="Shoes" />
-        </figure>
-        <div className="card-body">
-          <h2 className="card-title">Shoes!</h2>
-          <p>If a dog chews shoes whose shoes does he choose?</p>
-          <div className="card-actions justify-end">
-            <button className="btn btn-secondary">Buy Now</button>
-          </div>
+    <div className="card card-compact bg-base-100 shadow-xl">
+      <figure>
+        <img src={img} alt="Shoes" />
+      </figure>
+      <div className="card-body">
+        <h2 className="card-title">{title}</h2>
+        <p>{description.slice(0, 100)} ...</p>
+        <div className="card-actions justify-end">
+          <p className="text-xl">
+            <strong>Price: </strong> ${price}
+          </p>
+          <Link to={`/course/${id}`} className="btn btn-primary">
+            Get Started
+          </Link>
         </div>
       </div>
     </div>

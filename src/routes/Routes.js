@@ -8,6 +8,7 @@ import ForgotPassword from "../components/Login/ForgotPassword";
 import Login from "../components/Login/Login";
 import ProfileUpdate from "../components/ProfileUpdate/ProfileUpdate";
 import SignUp from "../components/SignUp/SignUp";
+import RequireAuth from "./RequireAuth";
 
 const { createBrowserRouter } = require("react-router-dom");
 const { default: ErrorPage } = require("../components/ErrorPage/ErrorPage");
@@ -29,10 +30,16 @@ export const routes = createBrowserRouter([
       },
       {
         path: "/courses",
+        loader: () =>
+          fetch("https://learning-platform-server-three.vercel.app/courses"),
         element: <Courses></Courses>,
       },
       {
-        path: "/coursedetail/:id",
+        path: "/course/:id",
+        loader: ({ params }) =>
+          fetch(
+            `https://learning-platform-server-three.vercel.app/course/${params.id}`
+          ),
         element: <CourseDetails></CourseDetails>,
       },
       {
@@ -60,8 +67,12 @@ export const routes = createBrowserRouter([
         element: <ForgotPassword></ForgotPassword>,
       },
       {
-        path: "checkout",
-        element: <CheckOut></CheckOut>,
+        path: "/checkout",
+        element: (
+          <RequireAuth>
+            <CheckOut></CheckOut>
+          </RequireAuth>
+        ),
       },
     ],
   },

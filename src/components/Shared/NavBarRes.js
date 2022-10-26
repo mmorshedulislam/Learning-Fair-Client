@@ -45,6 +45,11 @@ const NavBarRes = () => {
                 </NavLink>
               </li>
               <li>
+                <NavLink to={"/faq"} className="text-xl mx-4">
+                  FAQ
+                </NavLink>
+              </li>
+              <li>
                 <NavLink to={"/blogs"} className="text-xl mx-4">
                   Blogs
                 </NavLink>
@@ -52,6 +57,7 @@ const NavBarRes = () => {
             </ul>
           </div>
           <Link to={"/"} className="text-2xl font-bold italic">
+            <img src="../../assests/imgs/logo.png" alt="" />
             Learning Fair
           </Link>
         </div>

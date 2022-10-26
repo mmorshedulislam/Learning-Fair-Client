@@ -1,5 +1,5 @@
 import React, { useContext, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGoogle, FaFacebook, FaGithub } from "react-icons/fa";
 import { AuthContext } from "../../contexts/AuthProvider";
 import toast from "react-hot-toast";
@@ -11,6 +11,11 @@ const Login = () => {
     signInWithFacebook,
     signInWithGithub,
   } = useContext(AuthContext);
+
+  // redirect to path want to user
+  const location = useLocation();
+  const navigate = useNavigate();
+  let from = location.state?.from?.pathname || "/";
 
   // get value using useRef
   const emailRef = useRef();
@@ -24,9 +29,10 @@ const Login = () => {
 
     signInEmaiLPassword(email, password)
       .then((userCredential) => {
-        const user = userCredential.user;
+        // const user = userCredential.user;
+        navigate(from, { replace: true });
         toast.success("Successfully Log In!");
-        console.log(user);
+        // console.log(user);
       })
       .catch((e) => console.error(e));
   };
@@ -35,8 +41,9 @@ const Login = () => {
   const signGoogle = () => {
     signWithGoogle()
       .then((result) => {
-        const user = result.user;
+        // const user = result.user;
         toast.success("Successfully logged in with Google.");
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         console.error(error);
@@ -47,7 +54,7 @@ const Login = () => {
   const signInFacebook = () => {
     signInWithFacebook()
       .then((userCredential) => {
-        const user = userCredential.user;
+        // const user = userCredential.user;
         toast.success("Successfully logged in with Facebook.");
       })
       .catch((e) => console.error(e));
@@ -57,7 +64,7 @@ const Login = () => {
   const signInGithub = () => {
     signInWithGithub()
       .then((userCredential) => {
-        const user = userCredential.user;
+        // const user = userCredential.user;
         toast.success("Successfully Logged In with Github.");
       })
       .catch((e) => console.error(e));

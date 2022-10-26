@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
 
 const Home = () => {
@@ -19,7 +20,7 @@ const Home = () => {
             <p className="text-2xl md:text-4xl font-semi-bold">
               So, Let's explore our Premium Courses...
             </p>
-            <button className="btn mt-5 btn-primary">Explore Courses</button>
+            <Link to={'/courses'} className="btn mt-5 btn-primary">Explore Courses</Link>
           </div>
         </div>
       </div>

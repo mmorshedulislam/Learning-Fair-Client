@@ -18,9 +18,12 @@ const auth = getAuth(app);
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  // Login service Provider
   const googleProvider = new GoogleAuthProvider();
   const githubProvider = new GithubAuthProvider();
-  const facebokProvider = new FacebookAuthProvider();
+  const facebookProvider = new FacebookAuthProvider();
 
   const createUser = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
@@ -39,7 +42,7 @@ const AuthProvider = ({ children }) => {
   };
 
   const signInWithFacebook = () => {
-    return signInWithPopup(auth, facebokProvider);
+    return signInWithPopup(auth, facebookProvider);
   };
 
   const profileUpdate = (profile) => {
@@ -53,7 +56,8 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
-      console.log(currentUser);
+      setLoading(false);
+      // console.log(currentUser);
     });
     return () => {
       unSubscribe();
@@ -62,6 +66,7 @@ const AuthProvider = ({ children }) => {
 
   const authInfo = {
     user,
+    loading,
     createUser,
     signInEmaiLPassword,
     signWithGoogle,
