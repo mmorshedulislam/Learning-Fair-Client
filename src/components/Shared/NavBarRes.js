@@ -1,6 +1,8 @@
 import React, { useContext } from "react";
+import { FaLaptopCode } from "react-icons/fa";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
+import DayNight from "./DayNight";
 
 const NavBarRes = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -56,9 +58,11 @@ const NavBarRes = () => {
               </li>
             </ul>
           </div>
-          <Link to={"/"} className="text-2xl font-bold italic">
-            <img src="../../assests/imgs/logo.png" alt="" />
-            Learning Fair
+          <Link
+            to={"/"}
+            className="text-3xl font-bold italic text-[#dddddd] flex items-center"
+          >
+            <FaLaptopCode /> <span className="ml-2">Learning Fair</span>
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
@@ -86,7 +90,7 @@ const NavBarRes = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <input type="checkbox" className="toggle mr-3" />
+          <DayNight></DayNight>
           {!user ? (
             <>
               <NavLink to={"/login"} className="text-xl mx-4">
@@ -100,7 +104,11 @@ const NavBarRes = () => {
             <>
               <div className="w-10 " title={user?.displayName}>
                 <Link to={"/update-profile"}>
-                  <img src={user?.photoURL} alt="" className="rounded-full" />
+                  <div className="avatar online">
+                    <div className="w-24 rounded-full">
+                      <img src={user?.photoURL} alt="" />
+                    </div>
+                  </div>
                 </Link>
                 {/* <FaUser></FaUser> */}
               </div>

@@ -45,6 +45,7 @@ export const routes = createBrowserRouter([
       },
       {
         path: "faq",
+        loader: () => fetch("https://learning-platform-server-mmorshedulislam.vercel.app/faq"),
         element: <FAQ></FAQ>,
       },
       {
