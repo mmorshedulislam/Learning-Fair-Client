@@ -106,13 +106,13 @@ const CheckOut = () => {
               <p className="flex justify-between my-1">
                 <span className="font-semibold">Estimated Shipping</span>
                 <span>
-                  $<span>{price * 0.05}</span>
+                  $<span>{(price * 0.05).toFixed(2)}</span>
                 </span>
               </p>
               <p className="flex justify-between my-1">
                 <span className="font-semibold">Estimated Tax</span>
                 <span>
-                  $<span>{price * 0.1}</span>
+                  $<span>{(price * 0.1).toFixed(2)}</span>
                 </span>
               </p>
               <h4 className="flex justify-between my-1">

@@ -1,10 +1,13 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { FaGoogle, FaFacebook, FaGithub } from "react-icons/fa";
 import { AuthContext } from "../../contexts/AuthProvider";
+import toast from "react-hot-toast";
 
 const SignUp = () => {
   const { createUser, profileUpdate } = useContext(AuthContext);
+  const [passError, setPassError] = useState("");
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -16,12 +19,21 @@ const SignUp = () => {
     const confirm = form.confirm.value;
     console.log(name, photoURL, phone, email, password, confirm);
 
+    if (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(password)) {
+      return toast.error("Please, Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character"); 
+    }
+
+    if (password !== confirm) {
+      return setPassError("Password doesn't Match!");
+    }
+
     // create user with email and password
     createUser(email, password)
       .then((userCredential) => {
-        const user = userCredential.user;
-        updateProfile(name, photoURL)
-        console.log(user);
+        // const user = userCredential.user;
+        updateProfile(name, photoURL);
+        form.reset();
+        // console.log(user);
       })
       .catch((e) => console.error(e));
   };
@@ -117,6 +129,7 @@ const SignUp = () => {
               required
             />
           </div>
+          <p className="text-red-400 mt-2">{passError}</p>
           <input type="submit" value="SIGN UP" className="btn btn-block mt-4" />
         </form>
         <p className="my-3">

@@ -33,9 +33,13 @@ const Login = () => {
         // const user = userCredential.user;
         navigate(from, { replace: true });
         toast.success("Successfully Log In!");
-        // console.log(user);
       })
-      .catch((e) => console.error(e));
+      .catch((e) => {
+        console.error(e)
+        const errorCode = e.code; 
+        // const errorMessage = e.message; 
+        toast.error(errorCode)
+      });
   };
 
   // reset password
@@ -47,7 +51,7 @@ const Login = () => {
           toast.success("Reset email has been sent.");
         })
         .catch((error) => {
-          const errorCode = error.code;
+          // const errorCode = error.code;
           const errorMessage = error.message;
           toast.error(errorMessage);
         });

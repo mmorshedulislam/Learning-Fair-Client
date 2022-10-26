@@ -13,7 +13,7 @@ const Blogs = () => {
         ))}
       </div>
       <div>
-        <SideNavBlog></SideNavBlog>
+        <SideNavBlog blogs={blogs}></SideNavBlog>
       </div>
     </div>
   );

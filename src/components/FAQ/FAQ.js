@@ -1,5 +1,6 @@
 import React from "react";
 import { useLoaderData } from "react-router-dom";
+import ReactPdfPrint from "../ReactPdfPrint/ReactPdfPrint";
 import SingleFAQ from "./SingleFAQ";
 
 const FAQ = () => {

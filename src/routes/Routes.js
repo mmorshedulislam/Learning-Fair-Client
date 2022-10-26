@@ -82,12 +82,6 @@ export const routes = createBrowserRouter([
           </RequireAuth>
         ),
       },
-      {
-        path: "/sidenavcourse",
-        loader: () =>
-          fetch("https://learning-platform-server-three.vercel.app/courses"),
-        element: <SideNavCourse></SideNavCourse>,
-      },
     ],
   },
 ]);
