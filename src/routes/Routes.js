@@ -7,6 +7,7 @@ import Home from "../components/Home/Home";
 import ForgotPassword from "../components/Login/ForgotPassword";
 import Login from "../components/Login/Login";
 import ProfileUpdate from "../components/ProfileUpdate/ProfileUpdate";
+import SideNavCourse from "../components/Shared/SideNavCourse";
 import SignUp from "../components/SignUp/SignUp";
 import RequireAuth from "./RequireAuth";
 
@@ -48,6 +49,8 @@ export const routes = createBrowserRouter([
       },
       {
         path: "/blogs",
+        loader: () =>
+          fetch(`https://learning-platform-server-three.vercel.app/blogs`),
         element: <Blogs></Blogs>,
       },
       {
@@ -67,12 +70,22 @@ export const routes = createBrowserRouter([
         element: <ForgotPassword></ForgotPassword>,
       },
       {
-        path: "/checkout",
+        path: "/checkout/:id",
+        loader: ({ params }) =>
+          fetch(
+            `https://learning-platform-server-three.vercel.app/course/${params.id}`
+          ),
         element: (
           <RequireAuth>
             <CheckOut></CheckOut>
           </RequireAuth>
         ),
+      },
+      {
+        path: "/sidenavcourse",
+        loader: () =>
+          fetch("https://learning-platform-server-three.vercel.app/courses"),
+        element: <SideNavCourse></SideNavCourse>,
       },
     ],
   },

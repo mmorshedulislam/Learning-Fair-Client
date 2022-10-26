@@ -1,0 +1,84 @@
+.checkout-main {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+}
+
+.delivery-options {
+  border: 1px solid black;
+  padding: 20px;
+}
+.delivery-title {
+  background-color: black;
+  padding: 10px 20px;
+  margin: 0;
+}
+.ship {
+  display: flex;
+  justify-content: space-around;
+  margin: 10px 20px;
+}
+
+.ship button {
+  border: 0.5px solid rgb(92 86 86);
+  width: 50%;
+  padding: 10px 20px;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 20px;
+  margin: 0 2px;
+}
+
+.ship button:nth-child(1) {
+  border-bottom: 3px solid #fb4a00;
+}
+
+.ship-radio {
+  margin: 10px;
+  display: inline-block;
+  font-size: 18px;
+}
+
+.save-btn {
+  background: #fb4a00;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 2px;
+  font-weight: 500;
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* calculation */
+.calculation-items {
+  border: 1px solid #ddd;
+  padding: 20px;
+}
+.calculation-title {
+  background: #e5e5e5;
+  color: black;
+  font-weight: 800;
+  padding: 5px 10px;
+  font-size: 20px;
+}
+
+/* Responsive */
+@media screen and (max-width: 700px) {
+  .checkout-main {
+    grid-template-columns: 1fr;
+  }
+  .delivery-man{
+    margin: 10px 20px;
+  }
+  .ship {
+    flex-direction: column;
+  }
+  .ship button {
+    width: 100%;
+    margin-top: 10px;
+  }
+  .checkout-calculation{
+    margin: 10px 20px;
+  }
+}

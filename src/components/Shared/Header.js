@@ -6,8 +6,8 @@ import NavBarRes from "./NavBarRes";
 const Header = () => {
   return (
     <div>
-      <NavBar></NavBar>
-      {/* <NavBarRes></NavBarRes> */}
+      {/* <NavBar></NavBar> */}
+      <NavBarRes></NavBarRes>
     </div>
   );
 };

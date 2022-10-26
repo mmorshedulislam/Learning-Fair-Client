@@ -16,7 +16,7 @@ const Course = ({ course }) => {
           <p className="text-xl">
             <strong>Price: </strong> ${price}
           </p>
-          <Link to={`/course/${id}`} className="btn btn-primary">
+          <Link to={`/course/${course?.id}`} className="btn btn-primary">
             Get Started
           </Link>
         </div>

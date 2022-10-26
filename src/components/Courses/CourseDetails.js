@@ -1,12 +1,12 @@
 import React from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import SideNavCourse from "../Shared/SideNavCourse";
 import "./CourseDetails.css";
 import { FaRegFilePdf } from "react-icons/fa";
 
 const CourseDetails = () => {
   const course = useLoaderData();
-  const { img, title, description, price } = course;
+  const { id, img, title, description, price } = course;
   return (
     <div className="course-detail container mx-auto mt-12">
       <div>
@@ -30,7 +30,7 @@ const CourseDetails = () => {
               <strong>Price: </strong> ${price}
             </p>
             <div className="card-actions justify-end">
-              <button className="btn btn-primary">Buy Premium</button>
+              <Link to={`/checkout/${id}`} className="btn btn-primary">Buy Premium</Link>
             </div>
           </div>
         </div>

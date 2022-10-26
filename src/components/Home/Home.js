@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
+import Course from "../Courses/Course";
 
 const Home = () => {
   const { user } = useContext(AuthContext);
@@ -23,6 +24,9 @@ const Home = () => {
             <Link to={'/courses'} className="btn mt-5 btn-primary">Explore Courses</Link>
           </div>
         </div>
+      </div>
+      <div className="grid grid-cols-3">
+        {/* <Course></Course> */}
       </div>
     </div>
   );
