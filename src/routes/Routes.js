@@ -7,7 +7,7 @@ import Home from "../components/Home/Home";
 import ForgotPassword from "../components/Login/ForgotPassword";
 import Login from "../components/Login/Login";
 import ProfileUpdate from "../components/ProfileUpdate/ProfileUpdate";
-import SideNavCourse from "../components/Shared/SideNavCourse";
+import Footer from "../components/Shared/Footer";
 import SignUp from "../components/SignUp/SignUp";
 import RequireAuth from "./RequireAuth";
 
@@ -23,10 +23,14 @@ export const routes = createBrowserRouter([
     children: [
       {
         path: "/",
+        loader: () =>
+          fetch("https://learning-platform-server-three.vercel.app/courses"),
         element: <Home></Home>,
       },
       {
         path: "/home",
+        loader: () =>
+          fetch("https://learning-platform-server-three.vercel.app/courses"),
         element: <Home></Home>,
       },
       {
@@ -45,7 +49,10 @@ export const routes = createBrowserRouter([
       },
       {
         path: "faq",
-        loader: () => fetch("https://learning-platform-server-mmorshedulislam.vercel.app/faq"),
+        loader: () =>
+          fetch(
+            "https://learning-platform-server-mmorshedulislam.vercel.app/faq"
+          ),
         element: <FAQ></FAQ>,
       },
       {
@@ -64,7 +71,11 @@ export const routes = createBrowserRouter([
       },
       {
         path: "/update-profile",
-        element: <ProfileUpdate></ProfileUpdate>,
+        element: (
+          <RequireAuth>
+            <ProfileUpdate></ProfileUpdate>
+          </RequireAuth>
+        ),
       },
       {
         path: "/forgot-password",
@@ -81,6 +92,14 @@ export const routes = createBrowserRouter([
             <CheckOut></CheckOut>
           </RequireAuth>
         ),
+      },
+      {
+        path: "/footer",
+        loader: ({ params }) =>
+          fetch(
+            `https://learning-platform-server-three.vercel.app/course/${params.id}`
+          ),
+        element: <Footer></Footer>,
       },
     ],
   },

@@ -4,9 +4,9 @@ const Blog = ({ blog }) => {
   const { img, title, description, options } = blog;
   return (
     <div>
-      <div className="card shadow-xl">
+      <div className="card shadow-xl mx-4">
         <figure>
-          <img src={img} alt="Shoes" />
+          <img src={img} alt={title} />
         </figure>
         <div className="card-body">
           <h2 className="card-title">{title}</h2>

@@ -1,0 +1,13 @@
+.social-icons a {
+  margin: 0 10px;
+  font-size: 20px;
+  border: 1px solid #ddd;
+  width: 40px;
+  height: 40px;
+  padding: 2px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}

@@ -35,10 +35,10 @@ const Login = () => {
         toast.success("Successfully Log In!");
       })
       .catch((e) => {
-        console.error(e)
-        const errorCode = e.code; 
-        // const errorMessage = e.message; 
-        toast.error(errorCode)
+        console.error(e);
+        const errorCode = e.code;
+        // const errorMessage = e.message;
+        toast.error(errorCode);
       });
   };
 
@@ -56,7 +56,7 @@ const Login = () => {
           toast.error(errorMessage);
         });
     } else {
-      toast.error('Please input your Email.')
+      toast.error("Please input your Email.");
     }
   };
 
@@ -79,6 +79,7 @@ const Login = () => {
       .then((userCredential) => {
         // const user = userCredential.user;
         toast.success("Successfully logged in with Facebook.");
+        navigate(from, { replace: true });
       })
       .catch((e) => console.error(e));
   };
@@ -89,39 +90,40 @@ const Login = () => {
       .then((userCredential) => {
         // const user = userCredential.user;
         toast.success("Successfully Logged In with Github.");
+        navigate(from, { replace: true });
       })
       .catch((e) => console.error(e));
   };
 
   return (
-    <div className="container mx-auto">
-      <div className="max-w-md lg:max-w-96 mx-auto border border-yellow-600 border-md p-16 rounded">
+    <div className="container mx-4 lg:mx-auto my-5">
+      <div className="max-w-md lg:max-w-96 mx-auto border border-yellow-600 border-md p-16 rounded ">
         <form onSubmit={handleSubmit}>
           <h2 className="text-4xl italic my-5">Login</h2>
           {/* Email */}
           <div className="form-control w-full max-w-xs">
             <label className="label">
-              <span className="label-text">Email</span>
+              <span className="label-text text-black">Email</span>
             </label>
             <input
               ref={emailRef}
               type="email"
               name="email"
               placeholder="Enter Your Email"
-              className="input input-bordered w-full max-w-xs"
+              className="input input-bordered bg-slate-200 text-black w-full max-w-xs"
             />
           </div>
           {/* Password */}
           <div className="form-control w-full max-w-xs">
             <label className="label">
-              <span className="label-text">Password</span>
+              <span className="label-text text-black">Password</span>
             </label>
             <input
               ref={passwordRef}
               type="password"
               name="password"
               placeholder="Enter Your Password"
-              className="input input-bordered w-full max-w-lg"
+              className="input input-bordered  bg-slate-200 text-black w-full max-w-lg"
             />
           </div>
           {/* Checkbox */}
@@ -130,12 +132,14 @@ const Login = () => {
               <label className="label cursor-pointer">
                 <div className="flex items-center">
                   <input type="checkbox" className="checkbox" />
-                  <span className="label-text ml-1">Remember me</span>
+                  <span className="label-text ml-1 text-black">
+                    Remember me
+                  </span>
                 </div>
               </label>
             </div>
             <div onClick={handleResetPassword}>
-              <Link to={""} className="text-yellow-200">
+              <Link to={""} className="text-yellow-500">
                 Forgotten Password?
               </Link>
             </div>
@@ -144,7 +148,7 @@ const Login = () => {
         </form>
         <p className="my-3">
           Don't have an Account?{" "}
-          <Link to={`/signup`} className="text-yellow-200">
+          <Link to={`/signup`} className="text-yellow-500">
             Create an Account
           </Link>
         </p>

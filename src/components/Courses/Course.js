@@ -2,10 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Course = ({ course }) => {
-  const { id, title, description, img, price } = course;
+  const { title, description, img, price } = course;
 
   return (
-    <div className="card card-compact shadow-xl">
+    <div className="card card-compact shadow-xl mx-4 lg:mx-0">
       <figure>
         <img src={img} alt="Shoes" />
       </figure>

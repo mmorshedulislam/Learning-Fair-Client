@@ -17,7 +17,7 @@ const CheckOut = () => {
             <h2 className="text-2xl font-semibold">1. Delivery Options</h2>
           </div>
           <div className="delivery-options">
-            <div className="ship">
+            <div className="ship text-black">
               <button>Ship</button>
               <button>Pick Up</button>
             </div>
@@ -33,7 +33,7 @@ const CheckOut = () => {
             <div>
               <form>
                 <input
-                  className="input input-bordered w-full my-2 text-white"
+                  className="input input-bordered w-full my-2 text-black bg-slate-200"
                   type="text"
                   name="name"
                   id="name"
@@ -41,14 +41,14 @@ const CheckOut = () => {
                   placeholder="Full Name"
                 />
                 <input
-                  className="input input-bordered w-full my-2 text-white"
+                  className="input input-bordered w-full my-2 text-black bg-slate-200"
                   type="text"
                   name="address"
                   id="address"
                   placeholder="Enter your shipping address"
                 />
                 <input
-                  className="input input-bordered w-full my-2 text-white"
+                  className="input input-bordered w-full my-2 text-black bg-slate-200"
                   type="email"
                   name="email"
                   id="email"
@@ -56,7 +56,7 @@ const CheckOut = () => {
                   placeholder="Email"
                 />
                 <input
-                  className="input input-bordered w-full my-2 text-white"
+                  className="input input-bordered w-full my-2 text-black bg-slate-200"
                   type="text"
                   name="phone"
                   id="phone"
@@ -80,16 +80,16 @@ const CheckOut = () => {
           </div>
           <div className="calculation-items">
             <h2 className="text-xl font-semibold my-3">Selected Items</h2>
-            <div className="selected-items flex">
-              <img src={img} alt="" className="w-36" />
+            <div className="selected-items grid grid-cols-1 lg:grid-cols-2">
+              <img src={img} alt="" className="w-full" />
               <div className="ml-4">
-                <h2 className="text-xl text-red-500">{title}</h2>
+                <h2 className="text-xl text-red-500 font-semibold">{title}</h2>
                 <h2>Product ID: {id}</h2>
                 <p>{description.slice(0, 40)}...</p>
                 <p>
                   Quantity: <span>01</span>
                 </p>
-                <p>
+                <p className="text-xl">
                   Price: <span className="text-[#fb4a00]">${price}</span>
                 </p>
               </div>

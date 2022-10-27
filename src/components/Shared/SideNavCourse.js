@@ -1,16 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./SideNavCourse.css";
 
-const SideNavCourse = ({ courses }) => {
+const SideNavCourse = () => {
+  const [courses, setCourses] = useState([]);
+
+  useEffect(() => {
+    fetch("https://learning-platform-server-three.vercel.app/courses")
+      .then((res) => res.json())
+      .then((data) => setCourses(data));
+  }, []);
   return (
     <div>
       <div className="calculation-title">
-        <h2 className="text-4xl my-5 font-sans">
-          All Courses
-        </h2>
+        <h2 className="text-4xl my-5 font-sans">All Courses</h2>
       </div>
-      <div className="border border-[#303952] rounded-md py-10">
+      <div className="border border-[#303952] py-10">
         <ul>
           {courses?.map((c) => (
             <li className="course-name">
