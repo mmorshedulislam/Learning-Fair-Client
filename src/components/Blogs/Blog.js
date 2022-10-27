@@ -4,7 +4,7 @@ const Blog = ({ blog }) => {
   const { img, title, description, options } = blog;
   return (
     <div>
-      <div className="card bg-base-100 shadow-xl">
+      <div className="card shadow-xl">
         <figure>
           <img src={img} alt="Shoes" />
         </figure>

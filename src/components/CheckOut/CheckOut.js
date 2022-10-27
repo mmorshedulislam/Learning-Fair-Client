@@ -10,7 +10,7 @@ const CheckOut = () => {
 
   return (
     <>
-    <h2 className="text-center text-4xl text-red-300 mt-3">CHECKOUT PAGE</h2>
+    <h2 className="text-center text-4xl text-red-500 font-bold mt-3">CHECKOUT PAGE</h2>
       <div className="checkout-main container mx-auto my-12">
         <div className="delivery-man">
           <div className="delivery-title">
@@ -33,7 +33,7 @@ const CheckOut = () => {
             <div>
               <form>
                 <input
-                  className="input input-bordered w-full my-2"
+                  className="input input-bordered w-full my-2 text-white"
                   type="text"
                   name="name"
                   id="name"
@@ -41,14 +41,14 @@ const CheckOut = () => {
                   placeholder="Full Name"
                 />
                 <input
-                  className="input input-bordered w-full my-2"
+                  className="input input-bordered w-full my-2 text-white"
                   type="text"
                   name="address"
                   id="address"
                   placeholder="Enter your shipping address"
                 />
                 <input
-                  className="input input-bordered w-full my-2"
+                  className="input input-bordered w-full my-2 text-white"
                   type="email"
                   name="email"
                   id="email"
@@ -56,7 +56,7 @@ const CheckOut = () => {
                   placeholder="Email"
                 />
                 <input
-                  className="input input-bordered w-full my-2"
+                  className="input input-bordered w-full my-2 text-white"
                   type="text"
                   name="phone"
                   id="phone"
@@ -83,7 +83,7 @@ const CheckOut = () => {
             <div className="selected-items flex">
               <img src={img} alt="" className="w-36" />
               <div className="ml-4">
-                <h2 className="text-xl text-red-300">{title}</h2>
+                <h2 className="text-xl text-red-500">{title}</h2>
                 <h2>Product ID: {id}</h2>
                 <p>{description.slice(0, 40)}...</p>
                 <p>

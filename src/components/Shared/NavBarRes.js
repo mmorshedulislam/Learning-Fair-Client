@@ -12,8 +12,8 @@ const NavBarRes = () => {
       .catch((e) => console.error(e));
   };
   return (
-    <div className="container mx-auto">
-      <div className="navbar bg-base-100">
+    <div className="bg-slate-200 mx-auto md:px-20">
+      <div className="navbar">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -34,7 +34,7 @@ const NavBarRes = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+              className="menu menu-compact dropdown-content mt-3 p-2 shadow rounded-box w-52"
             >
               <li>
                 <NavLink to={"/home"} className="text-xl mx-4">
@@ -60,7 +60,7 @@ const NavBarRes = () => {
           </div>
           <Link
             to={"/"}
-            className="text-3xl font-bold italic text-[#dddddd] flex items-center"
+            className="text-xl lg:text-3xl font-bold italic text-black flex items-center"
           >
             <FaLaptopCode /> <span className="ml-2">Learning Fair</span>
           </Link>

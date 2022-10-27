@@ -13,22 +13,22 @@ const CourseDetails = () => {
   const printComponentRef = useRef();
   const handlePrint = useReactToPrint({
     content: () => printComponentRef.current,
-    documentTitle: "Course Details",
-    onAfterPrint: () => toast("Print Success"), 
+    documentTitle: title,
+    onAfterPrint: () => toast("Print Success"),
   });
 
   return (
-    <div className="course-detail container mx-auto mt-12">
-      <div ref={printComponentRef} style={{width: "100%"}}>
-        <div className="grid grid-cols-1 lg:grid-cols-2 card card-side bg-base-100 shadow-xl">
+    <div className="course-detail container mx-auto mt-12 px-3">
+      <div ref={printComponentRef} style={{ width: "100%" }}>
+        <div className="grid grid-cols-1 lg:grid-cols-2 card card-side border border-md shadow-xl">
           <figure>
-            <img src={img} alt="Movie" className="w-96 max-w-full" />
+            <img src={img} alt="Movie" className="w-full md:min-w-48 max-w-full" />
           </figure>
           <div className="card-body">
             <div className="flex justify-between items-center my-3">
               <h2 className="card-title text-2xl">{title}</h2>
               <span className="text-3xl">
-                <FaRegFilePdf onClick={handlePrint} className="print"/>
+                <FaRegFilePdf onClick={handlePrint} className="print" />
               </span>
             </div>
             <p className="text-justify">{description}</p>
