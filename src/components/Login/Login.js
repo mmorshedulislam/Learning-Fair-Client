@@ -97,11 +97,11 @@ const Login = () => {
 
   return (
     <div className="container mx-4 lg:mx-auto my-5">
-      <div className="max-w-md lg:max-w-96 mx-auto border border-yellow-600 border-md p-16 rounded ">
+      <div className="w-full lg:w-1/3 mx-auto border border-yellow-600 border-md p-8 rounded ">
         <form onSubmit={handleSubmit}>
           <h2 className="text-4xl italic my-5">Login</h2>
           {/* Email */}
-          <div className="form-control w-full max-w-xs">
+          <div className="form-control w-full">
             <label className="label">
               <span className="label-text text-black">Email</span>
             </label>
@@ -110,11 +110,11 @@ const Login = () => {
               type="email"
               name="email"
               placeholder="Enter Your Email"
-              className="input input-bordered bg-slate-200 text-black w-full max-w-xs"
+              className="input input-bordered bg-slate-200 text-black w-full"
             />
           </div>
           {/* Password */}
-          <div className="form-control w-full max-w-xs">
+          <div className="form-control w-full">
             <label className="label">
               <span className="label-text text-black">Password</span>
             </label>

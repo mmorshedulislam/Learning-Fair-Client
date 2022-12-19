@@ -104,126 +104,139 @@ const SignUp = () => {
   };
 
   return (
-    <div className="my-5 mx-4">
-      <div className="max-w-md lg:max-w-96 mx-auto border border-yellow-600 border-md p-8 lg:p-16 rounded">
-        <form onSubmit={handleSubmit}>
-          <h2 className="text-4xl italic my-5">Sign Up</h2>
-          {/* Name */}
-          <div className="form-control w-full max-w-xs">
-            <label className="label">
-              <span className="label-text text-black">Full Name</span>
-            </label>
+    <>
+      <h2 className="text-5xl mt-5 text-center font-bold">Sign Up</h2>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+        <div className="w-full order-last">
+          <img
+            className="w-full p-10"
+            src="https://cdni.iconscout.com/illustration/premium/thumb/e-wallet-sign-up-2523245-2117421.png"
+            alt=""
+          />
+        </div>
+        <div className="w-full mx-auto p-5 lg:px-20 rounded">
+          <form onSubmit={handleSubmit}>
+            {/* Name */}
+            <div className="form-control w-full">
+              <label className="label">
+                <span className="label-text text-black">Full Name</span>
+              </label>
+              <input
+                type="text"
+                name="name"
+                placeholder="Enter Your Name"
+                className="input input-bordered w-full bg-slate-200 text-black"
+                required
+              />
+            </div>
+            {/* Photo URL */}
+            <div className="form-control w-full">
+              <label className="label">
+                <span className="label-text text-black">Photo URL</span>
+              </label>
+              <input
+                type="text"
+                name="photoURL"
+                placeholder="Photo URL"
+                className="input input-bordered w-full bg-slate-200 text-black"
+              />
+            </div>
+            {/* Phone Number */}
+            <div className="form-control w-full">
+              <label className="label">
+                <span className="label-text text-black">Phone Number</span>
+              </label>
+              <input
+                type="number"
+                name="phone"
+                placeholder="Enter Your Phone Number"
+                className="input input-bordered w-full bg-slate-200 text-black"
+              />
+            </div>
+            {/* Email */}
+            <div className="form-control w-full">
+              <label className="label">
+                <span className="label-text text-black">Email</span>
+              </label>
+              <input
+                type="email"
+                name="email"
+                placeholder="Enter Your Email"
+                className="input input-bordered w-full bg-slate-200 text-black"
+                required
+              />
+            </div>
+            {/* Password */}
+            <div className="form-control w-full ">
+              <label className="label">
+                <span className="label-text text-black">Password</span>
+              </label>
+              <input
+                type="password"
+                name="password"
+                placeholder="Enter Your Password"
+                className="input input-bordered w-full bg-slate-200 text-black"
+                required
+              />
+            </div>
+            {passWrong}
+            {/* Confirm Password */}
+            <div className="form-control w-full">
+              <label className="label">
+                <span className="label-text text-black">Confirm Password</span>
+              </label>
+              <input
+                type="password"
+                name="confirm"
+                placeholder="Retype Your Password"
+                className="input input-bordered w-full bg-slate-200 text-black"
+                required
+              />
+            </div>
+            <p className="text-red-400 mt-2">{passError}</p>
             <input
-              type="text"
-              name="name"
-              placeholder="Enter Your Name"
-              className="input input-bordered w-full max-w-xs bg-slate-200 text-black"
-              required
+              type="submit"
+              value="SIGN UP"
+              className="btn btn-block mt-4"
             />
-          </div>
-          {/* Photo URL */}
-          <div className="form-control w-full max-w-xs">
-            <label className="label">
-              <span className="label-text text-black">Photo URL</span>
-            </label>
-            <input
-              type="text"
-              name="photoURL"
-              placeholder="Photo URL"
-              className="input input-bordered w-full max-w-xs bg-slate-200 text-black"
-            />
-          </div>
-          {/* Phone Number */}
-          <div className="form-control w-full max-w-xs">
-            <label className="label">
-              <span className="label-text text-black">Phone Number</span>
-            </label>
-            <input
-              type="number"
-              name="phone"
-              placeholder="Enter Your Phone Number"
-              className="input input-bordered w-full max-w-xs bg-slate-200 text-black"
-            />
-          </div>
-          {/* Email */}
-          <div className="form-control w-full max-w-xs">
-            <label className="label">
-              <span className="label-text text-black">Email</span>
-            </label>
-            <input
-              type="email"
-              name="email"
-              placeholder="Enter Your Email"
-              className="input input-bordered w-full max-w-xs bg-slate-200 text-black"
-              required
-            />
-          </div>
-          {/* Password */}
-          <div className="form-control w-full max-w-xs">
-            <label className="label">
-              <span className="label-text text-black">Password</span>
-            </label>
-            <input
-              type="password"
-              name="password"
-              placeholder="Enter Your Password"
-              className="input input-bordered w-full max-w-lg bg-slate-200 text-black"
-              required
-            />
-          </div>
-          {passWrong}
-          {/* Confirm Password */}
-          <div className="form-control w-full max-w-xs">
-            <label className="label">
-              <span className="label-text text-black">Confirm Password</span>
-            </label>
-            <input
-              type="password"
-              name="confirm"
-              placeholder="Enter Your Password"
-              className="input input-bordered w-full max-w-lg bg-slate-200 text-black"
-              required
-            />
-          </div>
-          <p className="text-red-400 mt-2">{passError}</p>
-          <input type="submit" value="SIGN UP" className="btn btn-block mt-4" />
-        </form>
-        <p className="my-3">
-          Already, have an Account?{" "}
-          <Link to={`/login`} className="text-yellow-500">
-            Log In
-          </Link>
-        </p>
-        <div className="divider">OR</div>
-        <p className="text-center text-xl my-3">Continue with </p>
-        <div className="social-login flex justify-evenly">
-          <div
-            onClick={signInGoogle}
-            className="border border-yellow-500 p-5 text-2xl rounded-full"
-          >
-            <Link className="block">
-              <FaGoogle></FaGoogle>
+          </form>
+          <p className="my-3">
+            Already, have an Account?{" "}
+            <Link to={`/login`} className="text-yellow-500">
+              Log In
             </Link>
-          </div>
-          <div
-            onClick={signInFacebook}
-            className="border border-yellow-500 p-5 text-2xl rounded-full"
-          >
-            <Link className="block">
-              <FaFacebook></FaFacebook>
-            </Link>
-          </div>
-          <div
-            onClick={signInGithub}
-            className="border border-yellow-500 p-5 text-2xl rounded-full"
-          >
-            <Link className="block">
-              <FaGithub></FaGithub>
-            </Link>
+          </p>
+          <div className="divider">OR</div>
+          <p className="text-center text-xl my-3">Continue with </p>
+          <div className="social-login flex justify-evenly">
+            <div
+              onClick={signInGoogle}
+              className="border border-yellow-500 p-5 text-2xl rounded-full"
+            >
+              <Link className="block">
+                <FaGoogle></FaGoogle>
+              </Link>
+            </div>
+            <div
+              onClick={signInFacebook}
+              className="border border-yellow-500 p-5 text-2xl rounded-full"
+            >
+              <Link className="block">
+                <FaFacebook></FaFacebook>
+              </Link>
+            </div>
+            <div
+              onClick={signInGithub}
+              className="border border-yellow-500 p-5 text-2xl rounded-full"
+            >
+              <Link className="block">
+                <FaGithub></FaGithub>
+              </Link>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
