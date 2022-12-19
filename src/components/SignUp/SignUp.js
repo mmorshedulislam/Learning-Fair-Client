@@ -160,7 +160,9 @@ const SignUp = () => {
             <input
               type="submit"
               value="SIGN UP"
-              className="btn btn-block mt-4"
+              className={`bg-green-400 w-full py-2 text-white rounded-md cursor-pointer ${
+                processing && "bg-green-300"
+              }`}
               disabled={processing}
             />
           </form>

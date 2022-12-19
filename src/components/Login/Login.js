@@ -119,7 +119,7 @@ const Login = () => {
             <input
               type="submit"
               value="LOG IN"
-              className="btn btn-block"
+              className={`bg-green-400 w-full py-2 text-white rounded-md cursor-pointer ${processing && 'bg-green-300'}`}
               disabled={processing}
             />
           </form>
