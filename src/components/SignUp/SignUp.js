@@ -1,17 +1,11 @@
 import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { FaGoogle, FaFacebook, FaGithub } from "react-icons/fa";
 import { AuthContext } from "../../contexts/AuthProvider";
 import toast from "react-hot-toast";
+import SocialLogin from "../SocialLogin/SocialLogin";
 
 const SignUp = () => {
-  const {
-    createUser,
-    profileUpdate,
-    signWithGoogle,
-    signInWithFacebook,
-    signInWithGithub,
-  } = useContext(AuthContext);
+  const { createUser, profileUpdate } = useContext(AuthContext);
 
   // redirect to path want to user
   const location = useLocation();
@@ -20,6 +14,7 @@ const SignUp = () => {
 
   const [passError, setPassError] = useState("");
   const [passWrong, setPassWrong] = useState("");
+  const [processing, setProcessing] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -39,9 +34,10 @@ const SignUp = () => {
     } */
 
     if (password !== confirm) {
-      return setPassError("Password doesn't Match!");
+      return setPassError("Password didn't Match!");
     }
 
+    setProcessing(true);
     // create user with email and password
     createUser(email, password)
       .then((userCredential) => {
@@ -50,8 +46,10 @@ const SignUp = () => {
         setPassWrong("");
         navigate(from, { replace: true });
         toast.success("Successfully Sign Up!");
+        setProcessing(false);
       })
       .catch((e) => {
+        setProcessing(false);
         const errorCode = e.code;
         const errorMessage = e.message;
         toast.error(errorCode || errorMessage);
@@ -68,48 +66,13 @@ const SignUp = () => {
       .catch((e) => console.error(e));
   };
 
-  // sign in with google
-  const signInGoogle = () => {
-    signWithGoogle()
-      .then((result) => {
-        // const user = result.user;
-        toast.success("Successfully logged in with Google.");
-        navigate(from, { replace: true });
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  };
-
-  // sign in with Facebook
-  const signInFacebook = () => {
-    signInWithFacebook()
-      .then((userCredential) => {
-        // const user = userCredential.user;
-        toast.success("Successfully logged in with Facebook.");
-        navigate(from, { replace: true });
-      })
-      .catch((e) => console.error(e));
-  };
-
-  // sign in with Github
-  const signInGithub = () => {
-    signInWithGithub()
-      .then((userCredential) => {
-        // const user = userCredential.user;
-        toast.success("Successfully Logged In with Github.");
-        navigate(from, { replace: true });
-      })
-      .catch((e) => console.error(e));
-  };
-
   return (
     <>
       <h2 className="text-5xl mt-5 text-center font-bold">Sign Up</h2>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-        <div className="w-full order-last">
+        <div className="w-full flex justify-center items-center">
           <img
-            className="w-full p-10"
+            className="w-full m-10 border rounded-lg"
             src="https://cdni.iconscout.com/illustration/premium/thumb/e-wallet-sign-up-2523245-2117421.png"
             alt=""
           />
@@ -125,7 +88,7 @@ const SignUp = () => {
                 type="text"
                 name="name"
                 placeholder="Enter Your Name"
-                className="input input-bordered w-full bg-slate-200 text-black"
+                className="input input-bordered w-full  text-black"
                 required
               />
             </div>
@@ -138,7 +101,7 @@ const SignUp = () => {
                 type="text"
                 name="photoURL"
                 placeholder="Photo URL"
-                className="input input-bordered w-full bg-slate-200 text-black"
+                className="input input-bordered w-full  text-black"
               />
             </div>
             {/* Phone Number */}
@@ -150,7 +113,7 @@ const SignUp = () => {
                 type="number"
                 name="phone"
                 placeholder="Enter Your Phone Number"
-                className="input input-bordered w-full bg-slate-200 text-black"
+                className="input input-bordered w-full  text-black"
               />
             </div>
             {/* Email */}
@@ -162,7 +125,7 @@ const SignUp = () => {
                 type="email"
                 name="email"
                 placeholder="Enter Your Email"
-                className="input input-bordered w-full bg-slate-200 text-black"
+                className="input input-bordered w-full  text-black"
                 required
               />
             </div>
@@ -175,7 +138,7 @@ const SignUp = () => {
                 type="password"
                 name="password"
                 placeholder="Enter Your Password"
-                className="input input-bordered w-full bg-slate-200 text-black"
+                className="input input-bordered w-full  text-black"
                 required
               />
             </div>
@@ -189,51 +152,26 @@ const SignUp = () => {
                 type="password"
                 name="confirm"
                 placeholder="Retype Your Password"
-                className="input input-bordered w-full bg-slate-200 text-black"
+                className="input input-bordered w-full  text-black"
                 required
               />
             </div>
-            <p className="text-red-400 mt-2">{passError}</p>
+            <p className="text-sm text-red-400 mt-2">{passError}</p>
             <input
               type="submit"
               value="SIGN UP"
               className="btn btn-block mt-4"
+              disabled={processing}
             />
           </form>
           <p className="my-3">
             Already, have an Account?{" "}
-            <Link to={`/login`} className="text-yellow-500">
+            <Link to={`/login`} className="text-green-400">
               Log In
             </Link>
           </p>
           <div className="divider">OR</div>
-          <p className="text-center text-xl my-3">Continue with </p>
-          <div className="social-login flex justify-evenly">
-            <div
-              onClick={signInGoogle}
-              className="border border-yellow-500 p-5 text-2xl rounded-full"
-            >
-              <Link className="block">
-                <FaGoogle></FaGoogle>
-              </Link>
-            </div>
-            <div
-              onClick={signInFacebook}
-              className="border border-yellow-500 p-5 text-2xl rounded-full"
-            >
-              <Link className="block">
-                <FaFacebook></FaFacebook>
-              </Link>
-            </div>
-            <div
-              onClick={signInGithub}
-              className="border border-yellow-500 p-5 text-2xl rounded-full"
-            >
-              <Link className="block">
-                <FaGithub></FaGithub>
-              </Link>
-            </div>
-          </div>
+          <SocialLogin></SocialLogin>
         </div>
       </div>
     </>

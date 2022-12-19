@@ -15,7 +15,7 @@ const ProfileUpdate = () => {
         />
       </div>
       <div className="w-full lg:w-1/3 mx-auto px-3">
-        <h2 className="text-3xl my-5 text-center font-bold">
+        <h2 className="text-3xl mt-5 text-center font-bold">
           {user?.displayName ? user?.displayName : "User"}
         </h2>
         <p className="text-center text-xl my-0">{user?.email}</p>

@@ -76,7 +76,7 @@ const NavBarRes = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <DayNight></DayNight>
+          {/* <DayNight></DayNight> */}
           {!user ? (
             <>
               <NavLink to={"/login"} className="text-xl mx-4">

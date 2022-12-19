@@ -1,17 +1,13 @@
-import React, { useContext, useRef } from "react";
+import React, { useContext, useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { FaGoogle, FaFacebook, FaGithub } from "react-icons/fa";
 import { AuthContext } from "../../contexts/AuthProvider";
 import toast from "react-hot-toast";
+import SocialLogin from "../SocialLogin/SocialLogin";
 
 const Login = () => {
-  const {
-    signInEmaiLPassword,
-    resetPassword,
-    signWithGoogle,
-    signInWithFacebook,
-    signInWithGithub,
-  } = useContext(AuthContext);
+  const { signInEmaiLPassword, resetPassword } = useContext(AuthContext);
+
+  const [processing, setProcessing] = useState(false);
 
   // redirect to path want to user
   const location = useLocation();
@@ -28,13 +24,16 @@ const Login = () => {
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
 
+    setProcessing(true);
     signInEmaiLPassword(email, password)
       .then((userCredential) => {
         // const user = userCredential.user;
         navigate(from, { replace: true });
         toast.success("Successfully Log In!");
+        setProcessing(false);
       })
       .catch((e) => {
+        setProcessing(false);
         console.error(e);
         const errorCode = e.code;
         // const errorMessage = e.message;
@@ -60,128 +59,81 @@ const Login = () => {
     }
   };
 
-  // sign in with google
-  const signGoogle = () => {
-    signWithGoogle()
-      .then((result) => {
-        // const user = result.user;
-        toast.success("Successfully logged in with Google.");
-        navigate(from, { replace: true });
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  };
-
-  // sign in with Facebook
-  const signInFacebook = () => {
-    signInWithFacebook()
-      .then((userCredential) => {
-        // const user = userCredential.user;
-        toast.success("Successfully logged in with Facebook.");
-        navigate(from, { replace: true });
-      })
-      .catch((e) => console.error(e));
-  };
-
-  // sign in with Github
-  const signInGithub = () => {
-    signInWithGithub()
-      .then((userCredential) => {
-        // const user = userCredential.user;
-        toast.success("Successfully Logged In with Github.");
-        navigate(from, { replace: true });
-      })
-      .catch((e) => console.error(e));
-  };
-
   return (
-    <div className="container mx-4 lg:mx-auto my-5">
-      <div className="w-full lg:w-1/3 mx-auto border border-yellow-600 border-md p-8 rounded ">
-        <form onSubmit={handleSubmit}>
-          <h2 className="text-4xl italic my-5">Login</h2>
-          {/* Email */}
-          <div className="form-control w-full">
-            <label className="label">
-              <span className="label-text text-black">Email</span>
-            </label>
-            <input
-              ref={emailRef}
-              type="email"
-              name="email"
-              placeholder="Enter Your Email"
-              className="input input-bordered bg-slate-200 text-black w-full"
-            />
-          </div>
-          {/* Password */}
-          <div className="form-control w-full">
-            <label className="label">
-              <span className="label-text text-black">Password</span>
-            </label>
-            <input
-              ref={passwordRef}
-              type="password"
-              name="password"
-              placeholder="Enter Your Password"
-              className="input input-bordered  bg-slate-200 text-black w-full max-w-lg"
-            />
-          </div>
-          {/* Checkbox */}
-          <div className="flex items-center justify-between my-3">
-            <div className="form-control">
-              <label className="label cursor-pointer">
-                <div className="flex items-center">
-                  <input type="checkbox" className="checkbox" />
-                  <span className="label-text ml-1 text-black">
-                    Remember me
-                  </span>
-                </div>
+    <>
+      <h2 className="text-5xl mt-5 text-center font-bold">Log In</h2>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+        <div className="w-full flex justify-center items-center">
+          <img
+            className="w-full m-10 border rounded-lg"
+            src="https://cdni.iconscout.com/illustration/premium/thumb/e-wallet-sign-up-2523245-2117421.png"
+            alt=""
+          />
+        </div>
+        <div className="w-full mx-auto p-5 lg:px-20 rounded">
+          <form onSubmit={handleSubmit}>
+            {/* Email */}
+            <div className="form-control w-full">
+              <label className="label">
+                <span className="label-text text-black">Email</span>
               </label>
+              <input
+                ref={emailRef}
+                type="email"
+                name="email"
+                placeholder="Enter Your Email"
+                className="input input-bordered text-black w-full"
+              />
             </div>
-            <div onClick={handleResetPassword}>
-              <Link to={""} className="text-yellow-500">
-                Forgotten Password?
-              </Link>
+            {/* Password */}
+            <div className="form-control w-full">
+              <label className="label">
+                <span className="label-text text-black">Password</span>
+              </label>
+              <input
+                ref={passwordRef}
+                type="password"
+                name="password"
+                placeholder="Enter Your Password"
+                className="input input-bordered text-black w-full"
+              />
             </div>
-          </div>
-          <input type="submit" value="LOG IN" className="btn btn-block" />
-        </form>
-        <p className="my-3">
-          Don't have an Account?{" "}
-          <Link to={`/signup`} className="text-yellow-500">
-            Create an Account
-          </Link>
-        </p>
-        <div className="divider">OR</div>
-        <p className="text-center text-xl my-3">Continue with </p>
-        <div className="social-login flex justify-evenly">
-          <div
-            onClick={signGoogle}
-            className="border border-yellow-500 p-5 text-2xl rounded-full"
-          >
-            <Link className="block">
-              <FaGoogle></FaGoogle>
+            {/* Checkbox */}
+            <div className="flex items-center justify-between my-3">
+              <div className="form-control">
+                <label className="label cursor-pointer">
+                  <div className="flex items-center">
+                    <input type="checkbox" className="checkbox" />
+                    <span className="label-text ml-1 text-black">
+                      Remember me
+                    </span>
+                  </div>
+                </label>
+              </div>
+              <div onClick={handleResetPassword}>
+                <Link to={""} className="text-green-500">
+                  Forgotten Password?
+                </Link>
+              </div>
+            </div>
+            <input
+              type="submit"
+              value="LOG IN"
+              className="btn btn-block"
+              disabled={processing}
+            />
+          </form>
+          <p className="my-3">
+            Don't have an Account?{" "}
+            <Link to={`/signup`} className="text-green-500">
+              Create an Account
             </Link>
-          </div>
-          <div
-            onClick={signInFacebook}
-            className="border border-yellow-500 p-5 text-2xl rounded-full"
-          >
-            <Link className="block">
-              <FaFacebook></FaFacebook>
-            </Link>
-          </div>
-          <div
-            onClick={signInGithub}
-            className="border border-yellow-500 p-5 text-2xl rounded-full"
-          >
-            <Link className="block">
-              <FaGithub></FaGithub>
-            </Link>
-          </div>
+          </p>
+          <div className="divider">OR</div>
+          <SocialLogin></SocialLogin>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

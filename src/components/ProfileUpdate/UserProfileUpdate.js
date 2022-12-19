@@ -11,9 +11,10 @@ const UserProfileUpdate = () => {
     const last = form.last.value;
     const photoURL = form.photoURL.value;
     // const phone = form.phone.value;
-
-    updateProfile(first, last, photoURL);
-    form.reset()
+    if (first || last || photoURL) {
+      updateProfile(first, last, photoURL);
+      form.reset();
+    }
   };
 
   const updateProfile = (first, last, photoURL) => {
@@ -37,16 +38,17 @@ const UserProfileUpdate = () => {
       <form onSubmit={handleSubmit}>
         <label htmlFor="first" className="text-xl my-5 block">
           <input
-            className="input w-full bg-slate-200 text-black"
+            className="input w-full input-bordered  text-black"
             placeholder="First Name"
             type="text"
             name="first"
             id="first"
+            defaultValue={user?.displayName && user?.displayName}
           />
         </label>
         <label htmlFor="first" className="text-xl my-5 block">
           <input
-            className="input w-full bg-slate-200 text-black"
+            className="input w-full input-bordered  text-black"
             placeholder="Last Name"
             type="text"
             name="last"
@@ -55,7 +57,7 @@ const UserProfileUpdate = () => {
         </label>
         <label htmlFor="photoURL" className="text-xl my-5 block">
           <input
-            className="input w-full bg-slate-200 text-black"
+            className="input w-full input-bordered  text-black"
             placeholder="PhotoURL"
             type="text"
             name="photoURL"
@@ -65,7 +67,7 @@ const UserProfileUpdate = () => {
         </label>
         <label htmlFor="phone" className="text-xl my-5 block">
           <input
-            className="input w-full bg-slate-200 text-black"
+            className="input w-full input-bordered  text-black"
             placeholder="Phone Number"
             type="text"
             name="phone"
@@ -75,7 +77,7 @@ const UserProfileUpdate = () => {
         <input
           type="submit"
           value="Update"
-          className="bg-red-500 block mb-5 font-bold py-2 px-4 rounded-md text-white mr-auto"
+          className="bg-[#848379] w-full cursor-pointer uppercase mb-5 font-bold py-2 px-4 rounded-md text-white mr-auto"
         />
       </form>
     </div>
