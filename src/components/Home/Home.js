@@ -18,7 +18,7 @@ const Home = () => {
               destination from our Learning Fair.
             </p>
             <p className="text-2xl md:text-3xl font-semi-bold">
-              So, Let's explore our Premium Courses...
+              So, Let's explore our Premium Pro Courses...
             </p>
             <Link to={"/courses"} className="btn mt-5 btn-primary">
               Explore Courses
