@@ -18,7 +18,7 @@ const CourseDetails = () => {
   });
 
   return (
-    <div className="course-detail container mx-auto mt-12 px-3">
+    <div className="grid grid-cols-1 lg:grid-cols-[3fr_1fr] gap-5 mx-auto mt-12 px-5">
       <div ref={printComponentRef} style={{ width: "100%" }}>
         <div className="grid grid-cols-1 lg:grid-cols-2 card card-side border border-md shadow-xl">
           <figure>
@@ -28,7 +28,7 @@ const CourseDetails = () => {
             <div className="flex justify-between items-center my-3">
               <h2 className="card-title text-2xl">{title}</h2>
               <span className="text-3xl">
-                <FaRegFilePdf onClick={handlePrint} className="print" />
+                <FaRegFilePdf onClick={handlePrint} className="cursor-pointer" />
               </span>
             </div>
             <p className="text-justify">{description}</p>
@@ -40,7 +40,7 @@ const CourseDetails = () => {
               <strong>Price: </strong> ${price}
             </p>
             <div className="card-actions justify-end">
-              <Link to={`/checkout/${id}`} className="btn btn-primary">
+              <Link to={`/checkout/${id}`} className="bg-green-400 py-2 px-3 rounded-md text-white font-semibold">
                 Buy Premium
               </Link>
             </div>

@@ -10,8 +10,10 @@ const CheckOut = () => {
 
   return (
     <>
-    <h2 className="text-center text-4xl text-red-500 font-bold mt-3">CHECKOUT PAGE</h2>
-      <div className="checkout-main container mx-auto my-12">
+      <h2 className="text-center text-4xl text-green-500 font-bold my-5">
+        CHECKOUT PAGE
+      </h2>
+      <div className="checkout-main container mx-auto my-8">
         <div className="delivery-man">
           <div className="delivery-title">
             <h2 className="text-2xl font-semibold">1. Delivery Options</h2>
@@ -33,7 +35,7 @@ const CheckOut = () => {
             <div>
               <form>
                 <input
-                  className="input input-bordered w-full my-2 text-black bg-slate-200"
+                  className="input input-bordered w-full my-2 text-black "
                   type="text"
                   name="name"
                   id="name"
@@ -41,14 +43,14 @@ const CheckOut = () => {
                   placeholder="Full Name"
                 />
                 <input
-                  className="input input-bordered w-full my-2 text-black bg-slate-200"
+                  className="input input-bordered w-full my-2 text-black "
                   type="text"
                   name="address"
                   id="address"
                   placeholder="Enter your shipping address"
                 />
                 <input
-                  className="input input-bordered w-full my-2 text-black bg-slate-200"
+                  className="input input-bordered w-full my-2 text-black "
                   type="email"
                   name="email"
                   id="email"
@@ -56,7 +58,7 @@ const CheckOut = () => {
                   placeholder="Email"
                 />
                 <input
-                  className="input input-bordered w-full my-2 text-black bg-slate-200"
+                  className="input input-bordered w-full my-2 text-black "
                   type="text"
                   name="phone"
                   id="phone"
@@ -65,7 +67,7 @@ const CheckOut = () => {
                 />
               </form>
               <input
-                className="save-btn"
+                className="save-btn bg-green-500 cursor-pointer"
                 type="submit"
                 value="Save & Continue"
               />
@@ -81,7 +83,9 @@ const CheckOut = () => {
           <div className="calculation-items">
             <h2 className="text-xl font-semibold my-3">Selected Items</h2>
             <div className="selected-items grid grid-cols-1 lg:grid-cols-2">
-              <img src={img} alt="" className="w-full" />
+              <div className="flex justify-between items-center">
+                <img src={img} alt="" className="w-full" />
+              </div>
               <div className="ml-4">
                 <h2 className="text-xl text-red-500 font-semibold">{title}</h2>
                 <h2>Product ID: {id}</h2>

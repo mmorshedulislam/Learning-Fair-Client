@@ -18,13 +18,13 @@ const NavBarRes = () => {
   };
 
   const menu = [
-    { id: 1, name: "Home", path: "/home" },
+    { id: 1, name: "Homes", path: "/home" },
     { id: 2, name: "Courses", path: "/courses" },
     { id: 3, name: "FAQ", path: "/faq" },
     { id: 4, name: "Blogs", path: "blogs" },
   ];
   return (
-    <div className="bg-slate-200 mx-auto md:px-20">
+    <div className="mx-auto md:px-20">
       <div className="navbar">
         <div className="navbar-start">
           <div className="dropdown">
@@ -46,11 +46,11 @@ const NavBarRes = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-compact dropdown-content mt-3 p-2 shadow rounded-box w-52"
+              className="menu menu-compact dropdown-content my-5 p-1 shadow rounded-box"
             >
               {menu.map((m) => (
                 <li key={m.id}>
-                  <NavLink to={m.path} className="text-xl mx-4">
+                  <NavLink to={m.path} className="text-xl mx-2">
                     {m.name}
                   </NavLink>
                 </li>
@@ -98,7 +98,7 @@ const NavBarRes = () => {
                 </Link>
                 {/* <FaUser></FaUser> */}
               </div>
-              <p onClick={signOut} className="ml-3">
+              <p onClick={signOut} className="ml-3 cursor-pointer">
                 <FontAwesomeIcon icon={faRightToBracket} className="w-6 h-6" />
               </p>
             </>

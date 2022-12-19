@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { FaLaptopCode } from "react-icons/fa";
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./Footer.css";
 
 import {
@@ -25,7 +25,7 @@ const Footer = () => {
   }, []);
 
   return (
-    <div className="bg-black py-24 text-white px-8 mt-10">
+    <div className="bg-[#19180F] py-24 text-[#DFEBD9] px-8 mt-10">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-y-5">
         <div>
           <Link

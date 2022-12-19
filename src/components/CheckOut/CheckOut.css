@@ -32,7 +32,7 @@
 }
 
 .ship button:nth-child(1) {
-  border-bottom: 3px solid #fb4a00;
+  border-bottom: 3px solid green;
 }
 
 .ship-radio {
@@ -42,7 +42,6 @@
 }
 
 .save-btn {
-  background: #fb4a00;
   color: #fff;
   padding: 5px 10px;
   border-radius: 2px;

@@ -6,11 +6,11 @@ const Blog = ({ blog }) => {
     <div>
       <div className="card shadow-xl mx-4">
         <figure>
-          <img src={img} alt={title} />
+          <img className="w-full h-60" src={img} alt={title} />
         </figure>
         <div className="card-body">
           <h2 className="card-title">{title}</h2>
-          <p>{description}</p>
+          <p>{description.slice(0, 250)}...</p>
           {options ? options.map((option) => <li>{option}</li>) : ""}
           <div className="card-actions justify-end"></div>
         </div>
