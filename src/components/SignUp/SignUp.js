@@ -69,8 +69,8 @@ const SignUp = () => {
   return (
     <>
       <h2 className="text-5xl mt-5 text-center font-bold">Sign Up</h2>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-        <div className="w-full flex justify-center items-center">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-10">
+        <div className="w-full flex justify-center items-center lg:order-last">
           <img
             className="w-full m-10 border rounded-lg"
             src="https://cdni.iconscout.com/illustration/premium/thumb/e-wallet-sign-up-2523245-2117421.png"

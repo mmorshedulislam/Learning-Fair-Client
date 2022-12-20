@@ -5,14 +5,14 @@ const SideNavBlog = ({ blogs }) => {
   return (
     <div className="m-4">
       <div className="calculation-title">
-        <h2 className="text-4xl my-5 font-sans italic">All Blogs</h2>
+        <h2 className="text-3xl my-5 font-sans italic">All Blogs</h2>
       </div>
-      <div className="border border-[#303952] py-10">
+      <div>
         <ol>
-          {blogs.map((blog) => (
+          {blogs.map((blog, i) => (
             <li className="course-name">
-              <Link to={``} className="text-xl my-6">
-                {blog.title}
+              <Link to={``} className="text-md my-6">
+               {i+1}. {blog.title}
               </Link>
             </li>
           ))}

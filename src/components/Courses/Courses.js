@@ -8,7 +8,7 @@ const Courses = () => {
   const courses = useLoaderData();
   return (
     <div>
-      <h2 class="font-bold text-center text-4xl text-green-400 mt-3">
+      <h2 class="font-bold text-center text-2xl lg:text-4xl text-green-400 mt-3">
         Our Featured Courses
       </h2>
       <div className="divider">{"<->"}</div>

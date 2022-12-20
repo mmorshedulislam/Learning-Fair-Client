@@ -11,16 +11,16 @@ const SideNavCourse = () => {
       .then((data) => setCourses(data));
   }, []);
   return (
-    <div>
+    <div className="mx-5">
       <div className="calculation-title">
         <h2 className="text-4xl my-5 font-sans">All Courses</h2>
       </div>
-      <div className="border border-[#303952] py-10">
+      <div className="">
         <ul>
-          {courses?.map((c) => (
+          {courses?.map((c, i) => (
             <li className="course-name">
               <Link to={`/course/${c.id}`} className="text-xl">
-                {c?.title}
+                {i + 1}. {c?.title}
               </Link>
             </li>
           ))}

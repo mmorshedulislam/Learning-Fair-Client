@@ -62,7 +62,7 @@ const Login = () => {
   return (
     <>
       <h2 className="text-5xl mt-5 text-center font-bold">Log In</h2>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-10">
         <div className="w-full flex justify-center items-center">
           <img
             className="w-full m-10 border rounded-lg"

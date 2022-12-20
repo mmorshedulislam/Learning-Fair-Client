@@ -46,7 +46,7 @@ const NavBarRes = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-compact dropdown-content my-5 p-1 shadow rounded-box"
+              className="menu menu-compact dropdown-content"
             >
               {menu.map((m) => (
                 <li key={m.id}>
@@ -59,9 +59,9 @@ const NavBarRes = () => {
           </div>
           <Link
             to={"/"}
-            className="lg:text-3xl font-bold italic text-black flex items-center"
+            className="lg:text-3xl font-bold italic text-black flex justify-center items-center"
           >
-            <FaLaptopCode /> <span className="ml-2">Learning Fair</span>
+            <FaLaptopCode /> <span className="ml-2 text-sm font-bold">Learning Fair</span>
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">

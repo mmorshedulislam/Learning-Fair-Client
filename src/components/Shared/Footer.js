@@ -30,7 +30,7 @@ const Footer = () => {
         <div>
           <Link
             to={"/"}
-            className="text-4xl lg:text-3xl font-bold italic flex items-center"
+            className="text-2xl lg:text-3xl font-bold italic flex items-center"
           >
             <FaLaptopCode /> <span className="ml-2">Learning Fair</span>
           </Link>
